@@ -50,11 +50,11 @@ const propiedades_venta = [
     const ventaContenedor = document.getElementById('venta-contenedor');
   
     if (ventaContenedor) {
-      // Recorrer solo los primeros 3 elementos del array de propiedades en venta
+      // Recorrer solo los primeros 3 elementos  de propiedades en venta
       for (let i = 0; i < Math.min(3, propiedades_venta.length); i++) {
         const propiedad = propiedades_venta[i];
   
-        // Crear elementos HTML para mostrar la propiedad
+
         const card = document.createElement('div');
         card.classList.add('col-md-4', 'mb-4');
         card.innerHTML = `
@@ -71,7 +71,7 @@ const propiedades_venta = [
           </div>
         `;
   
-        // Agregar la tarjeta al contenedor
+   
         ventaContenedor.appendChild(card);
       }
     }

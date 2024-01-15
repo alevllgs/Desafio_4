@@ -1,6 +1,6 @@
 const propiedades_alquiler = [
     {
-        nombre: ' Apartamento en el centro de la ciudad',
+        nombre: 'Apartamento en el centro de la ciudad',
         src: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXBhcnRtZW50fGVufDB8MHwwfHx8MA%3D%3D&auto=format&fit=crop&w=700&q=60',
         descripcion: 'Este apartamento de 2 habitaciones está ubicado en el corazón de la ciudad, cerca de todo.',
         ubicacion: '123 Main Street, Anytown, CA 91234',
@@ -42,34 +42,33 @@ const propiedades_alquiler = [
         smoke: false,
         pets: true
     }
-]
+];
 
 document.addEventListener('DOMContentLoaded', function () {
     const alquilerContenedor = document.getElementById('alquiler-contenedor');
-  
-    if (alquilerContenedor) {
-      // Recorrer solo los primeros 3 elementos
-      for (let i = 0; i < Math.min(3, propiedades_alquiler.length); i++) {
-        const propiedad = propiedades_alquiler[i];
-  
-        const card = document.createElement('div');
-        card.classList.add('col-md-4', 'mb-4');
-        card.innerHTML = `
-          <div class="card">
-            <img src="${propiedad.src}" class="card-img-top" alt="Imagen del departamento" />
-            <div class="card-body">
-              <h5 class="card-title">${propiedad.nombre}</h5>
-              <p class="card-text">${propiedad.descripcion}</p>
-              <p><i class="fas fa-map-marker-alt"></i> ${propiedad.ubicacion}</p>
-              <p><i class="fas fa-bed"></i> ${propiedad.habitaciones} Habitaciones | <i class="fas fa-dollar-sign"></i> ${propiedad.costo}</p>
-              ${propiedad.smoke ? '<p class="text-danger"><i class="fas fa-smoking-ban"></i> No se permite fumar</p>' : ''}
-              ${propiedad.pets ? '<p class="text-success"><i class="fas fa-paw"></i> Mascotas permitidas</p>' : ''}
-            </div>
-          </div>
-        `;
-  
 
-        alquilerContenedor.appendChild(card);
-      }
+    if (alquilerContenedor) {
+        // Recorrer todos 
+        for (const propiedad of propiedades_alquiler) {
+    
+            const card = document.createElement('div');
+            card.classList.add('col-md-4', 'mb-4');
+            card.innerHTML = `
+                <div class="card">
+                    <img src="${propiedad.src}" class="card-img-top" alt="Imagen del departamento" />
+                    <div class="card-body">
+                        <h5 class="card-title">${propiedad.nombre}</h5>
+                        <p class="card-text">${propiedad.descripcion}</p>
+                        <p><i class="fas fa-map-marker-alt"></i> ${propiedad.ubicacion}</p>
+                        <p><i class="fas fa-bed"></i> ${propiedad.habitaciones} Habitaciones | <i class="fas fa-dollar-sign"></i> ${propiedad.costo}</p>
+                        ${propiedad.smoke ? '<p class="text-danger"><i class="fas fa-smoking-ban"></i> No se permite fumar</p>' : ''}
+                        ${propiedad.pets ? '<p class="text-success"><i class="fas fa-paw"></i> Mascotas permitidas</p>' : ''}
+                    </div>
+                </div>
+            `;
+
+      
+            alquilerContenedor.appendChild(card);
+        }
     }
-  });
+});
